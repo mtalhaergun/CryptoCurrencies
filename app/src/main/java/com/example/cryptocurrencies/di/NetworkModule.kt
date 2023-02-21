@@ -1,6 +1,6 @@
 package com.example.cryptocurrencies.di
 
-import androidx.viewbinding.BuildConfig
+import com.example.cryptocurrencies.BuildConfig
 import com.example.cryptocurrencies.network.ApiFactory
 import com.example.cryptocurrencies.utils.Constants.BASE_URL
 import dagger.Module
