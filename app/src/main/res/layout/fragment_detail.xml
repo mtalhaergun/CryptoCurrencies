@@ -65,7 +65,6 @@
         android:id="@+id/detailGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_references_ids="ivDetail,tvDetailDescription,tvDetailSymbol,tvDetailTitle">
-
+        app:constraint_referenced_ids="ivDetail,tvDetailDescription,tvDetailSymbol,tvDetailTitle">
     </androidx.constraintlayout.widget.Group>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import com.example.cryptocurrencies.base.BaseFragment
 import com.example.cryptocurrencies.databinding.FragmentHomeBinding
 import com.example.cryptocurrencies.model.home.Data
@@ -48,7 +49,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     private fun setRecycler(data : List<Data>){
         val mAdapter = HomeRecyclerAdapter(object : ItemClickListener{
             override fun onItemClick(coin: Data) {
-
+                if (coin.symbol != null){
+                    val navigation = HomeFragmentDirections.actionHomeFragmentToDetailFragment(coin.symbol)
+                    Navigation.findNavController(requireView()).navigate(navigation)
+                }
             }
 
         })
