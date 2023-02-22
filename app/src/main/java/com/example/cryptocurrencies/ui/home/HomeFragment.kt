@@ -1,6 +1,8 @@
 package com.example.cryptocurrencies.ui.home
 
+import android.os.Bundle
 import android.widget.Toast
+import com.example.cryptocurrencies.R
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -18,13 +20,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 ) {
     override val viewModel by viewModels<HomeViewModel>()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getData(API_KEY, LIMIT)
+
+    }
 
     override fun onCreateFinished() {
-        viewModel.getData(API_KEY, LIMIT)
     }
 
     override fun initializeListeners() {
-
     }
 
     override fun observeEvents() {
@@ -45,6 +50,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         }
 
     }
+
+
 
     private fun setRecycler(data : List<Data>){
         val mAdapter = HomeRecyclerAdapter(object : ItemClickListener{

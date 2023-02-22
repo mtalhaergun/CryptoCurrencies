@@ -29,12 +29,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>(
     override val viewModel by viewModels<DetailViewModel>()
     private val args by navArgs<DetailFragmentArgs>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.getDetail(API_KEY,args.symbol)
-    }
-
     override fun onCreateFinished() {
+        viewModel.getDetail(API_KEY,args.symbol)
     }
 
     override fun initializeListeners() {
